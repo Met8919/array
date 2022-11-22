@@ -39,11 +39,24 @@ class DynamicArray {
   }
 
   unshift(val) {
-    // Your code here
+    for (let i = this.length; i > 0; i--) {
+      this.data[i] = this.data[i - 1];
+    }
+
+    this.data[0] = val;
+    this.length++;
+    return this.length;
   }
 
   indexOf(val) {
-    // Your code here
+    for (let i = 0; i < this.length; i++) {
+      let current = this.data[i];
+      if (current === val) {
+        return i;
+      }
+    }
+
+    return -1;
   }
 
   resize() {
