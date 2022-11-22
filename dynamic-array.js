@@ -26,7 +26,16 @@ class DynamicArray {
   }
 
   shift() {
-    // Your code here
+    //remove the first element
+    if (this.length <= 0) return undefined;
+    let val = this.data[0];
+
+    for (let i = 0; i < this.length - 1; i++) {
+      this.data[i] = this.data[i + 1];
+    }
+    this.data[this.length - 1] = undefined;
+    this.length--;
+    return val;
   }
 
   unshift(val) {
